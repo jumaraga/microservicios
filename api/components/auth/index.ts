@@ -1,0 +1,1 @@
+import { owner } from "./controller";
