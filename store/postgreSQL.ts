@@ -1,12 +1,15 @@
 import  envModel from "../config";
 import { DataSource } from "typeorm";
-const dataSource = new DataSource({
+export const dataSource = new DataSource({
   type: "postgres",
   database: envModel.database.name,
   password: envModel.database.passsword,
   port: envModel.database.port,
   username: envModel.database.username,
   synchronize: false,
+  entities:[
+    '../**/*.model.ts'
+  ],migrations:['migrations/*.model.ts']
 });
 async function connectDB() {
   try {
