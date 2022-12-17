@@ -1,4 +1,4 @@
-import express from "express";
+import express,{Express} from "express";
 // auth =require('')
 import {router as user}  from "./components/user/network";
 import envModel  from "../config";
@@ -8,7 +8,7 @@ import { connectDB } from "../store/postgreSQL";
 
 const app = express();
 app.use(json());
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 connectDB();
 
 // ROUTER
