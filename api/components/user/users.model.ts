@@ -8,9 +8,6 @@ export class User {
     username: string;
 
     @Column()
-    password: string;
-
-    @Column()
     address:string;
 
     @Column()

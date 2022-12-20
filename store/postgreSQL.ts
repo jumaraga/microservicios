@@ -1,4 +1,4 @@
-import  envModel from "../config";
+import envModel from "../config";
 import { DataSource } from "typeorm";
 export const dataSource = new DataSource({
   type: "postgres",
@@ -7,9 +7,11 @@ export const dataSource = new DataSource({
   port: envModel.database.port,
   username: envModel.database.username,
   synchronize: false,
-  entities:[
-    '../**/*.model.ts'
-  ],migrations:['migrations/*.model.ts']
+  entities: [
+    'api/**/*.model.ts'
+  ], 
+  migrations: ['/migrations/*.model.ts'],
+
 });
 async function connectDB() {
   try {
@@ -35,11 +37,9 @@ async function removedById(TABLE, id) {
 }
 async function insert(TABLE, user) {
   try {
-    console.log(`INSERT INTO ${TABLE} (id,lastname,firstname,password,address,username) VALUES (1,'${user.firstname}','${user.lastname}','${user.password}','${user.address}','${user.username}') `)
     return await dataSource.query(
       `INSERT INTO ${TABLE} (id,lastname,firstname,password,address,username) VALUES (1,'${user.firstname}','${user.lastname}','${user.password}','${user.address}','${user.username}') `
     );
-    // return await dataSource.query(` SELECT * from ${TABLE};`);
   } catch (e) {
     console.log(e);
   }
@@ -53,7 +53,7 @@ async function update(TABLE, data) {
     console.log(e);
   }
 }
-async function upsert(TABLE, data) {
+async function upsert(TABLE: string, data) {
   if (data && data.id) {
     return update(TABLE, data);
   } else {
