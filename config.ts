@@ -9,7 +9,7 @@ export  default{
         name: process.env.DB_NAME || 'prueba'
     },
     dbService:{
-        port:process.env.DB_SERVICE_PORT || 3001,
+        port:process.env.DB_SERVICE_PORT || 3002,
         host: process.env.DB_SERVICE_HOST || 'localhost'
     },
     jwt:{

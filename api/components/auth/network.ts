@@ -16,12 +16,12 @@ function login(req, res, next) {
     Controller(TABLE).login(username, password)
         .then(token => success(req, res, 'Login success', 200, token))
         .catch(e => {
-            error(e, res, 'login error', 400)
+            error( res, 'login error', 400)
         })
 }
-function upsert(req: Request, res: Response, next: NextFunction) {
+function upsert(req: Request, res, next: NextFunction) {
     Controller(TABLE).upsert(req.body)
         .then((response) => success(req, res, 'user register success', 200, response))
-        .catch((err) => error(req, res, '', 400))
+        .catch((err) => error(res, '', 400))
 }
 export { router }

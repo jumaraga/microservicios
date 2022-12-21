@@ -32,11 +32,15 @@ module.exports = function (injectedStore) {
         }
     }
 
-    async function follow(userId, followedUser,) {
-        store.upsert({
-            user_from: userId,
-            user_to: followedUser
-        });
+    async function follow(userId, followedUserId,) {
+        const userFollowRepo = dataSource.getRepository('users_follow');
+        const query =`INSERT INTO users_follow (user_from,user_to) values(${userId},${followedUserId})`
+        userFollowRepo.query(query)
+        // const newRecord =  userFollowRepo.create({
+        //     user_from: +userId,
+        //     user_to: followedUserId
+        // })
+        // await userFollowRepo.(newRecord);
     }
 
     return {

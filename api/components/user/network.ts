@@ -42,11 +42,14 @@ router.put('/', checkAuth('update'), async function (req, res, next) {
         next(error)
     }
 })
-router.get('/follow/:id', function (req, res, next) {
+router.get('/follow/:id', async function (req, res, next) {
     try {
-        Controller.follow()
-    } catch (e) {
-        console.log(e)
+        const {id} = req.params
+        const {to} = req.body
+        const resp =await Controller.follow(id,to)
+        success(req, res, 'Following new user ', 200,resp);
+    } catch (error) {
+        next(error)
     }
 })
 
