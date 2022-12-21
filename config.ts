@@ -11,5 +11,8 @@ export  default{
     dbService:{
         port:process.env.DB_SERVICE_PORT || 3001,
         host: process.env.DB_SERVICE_HOST || 'localhost'
+    },
+    jwt:{
+        port:process.env.DB_SERVICE_PORT || 'a',
     }
 }

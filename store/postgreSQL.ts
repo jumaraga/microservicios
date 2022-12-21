@@ -10,7 +10,7 @@ export const dataSource = new DataSource({
   entities: [
     'api/**/*.model.ts'
   ], 
-  migrations: ['/migrations/*.model.ts'],
+  migrations: ['migrations/*.ts'],
 
 });
 async function connectDB() {
@@ -38,7 +38,7 @@ async function removedById(TABLE, id) {
 async function insert(TABLE, user) {
   try {
     return await dataSource.query(
-      `INSERT INTO ${TABLE} (id,lastname,firstname,password,address,username) VALUES (1,'${user.firstname}','${user.lastname}','${user.password}','${user.address}','${user.username}') `
+      `INSERT INTO ${TABLE} (id,lastname,firstname,address,username) VALUES (1,'${user.firstname}','${user.lastname}','${user.address}','${user.username}') `
     );
   } catch (e) {
     console.log(e);

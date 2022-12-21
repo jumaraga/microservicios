@@ -1,12 +1,13 @@
-import { Column, PrimaryColumn,CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToOne, Entity } from "typeorm";
+import { Column, PrimaryColumn,CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToOne, Entity, JoinColumn } from "typeorm";
 import { User } from "../user/users.model";
 @Entity('auth')
 export class auth {
     @PrimaryGeneratedColumn()
-    id: string;
-
-    @OneToOne(()=> User, (user)=>user.id)
-    userId:number;
+    id: number;
+    
+    @OneToOne(()=> User)
+    @JoinColumn()
+    user:User;
 
     @Column()
     password: string

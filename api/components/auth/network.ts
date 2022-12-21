@@ -16,7 +16,7 @@ function login(req, res, next) {
     Controller(TABLE).login(username, password)
         .then(token => success(req, res, 'Login success', 200, token))
         .catch(e => {
-            error(req, res, 'login error', 400)
+            error(e, res, 'login error', 400)
         })
 }
 function upsert(req: Request, res: Response, next: NextFunction) {

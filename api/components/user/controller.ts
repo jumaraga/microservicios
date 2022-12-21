@@ -17,9 +17,19 @@ module.exports = function (injectedStore) {
         return await store.findById(id, TABLA);
     }
 
-    async function upsert(body) {
-    
-        return await store.upsert(TABLA, body);
+    async function upsert(body: { username, firstname, addres, lastname, password }) {
+        try {
+            const { password, ...userInfo } = body;
+            const usersRepo = dataSource.getRepository('users');
+            const user = await usersRepo.findOne({ where: {username: userInfo.username} });
+            const newUser = await usersRepo.save(userInfo);
+            if (user) return
+            const authRepo = dataSource.getRepository('auth');
+            const resp = await authRepo.save({ password: await hash(password, 10), userId: newUser.id });
+
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     async function follow(userId, followedUser,) {
