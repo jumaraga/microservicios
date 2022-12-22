@@ -7,7 +7,10 @@
       "test": "echo \"Error: no test specified\" && exit 1",
       "dev": "nodemon --exec 'node --inspect=0.0.0.0:3001 -r ts-node/register api/index.ts'",
       "start": "ts-node src/index.ts",
-      "db-service":"nodemon --exec 'node --inspect=0.0.0.0:3003 -r ts-node/register database/index.ts' ",
+      "dev:posts-service":"nodemon --exec 'node --inspect=0.0.0.0:3005 -r ts-node/register posts/index.ts' ",
+      "dev:redis-service":"nodemon --exec 'node --inspect=0.0.0.0:3005 -r ts-node/register redis/index.ts' ",
+      "dev:db-service":"nodemon --exec 'node --inspect=0.0.0.0:3003 -r ts-node/register database/index.ts' ",
+      "prod:db-service":"nodemon --exec 'node --inspect=0.0.0.0:3003 -r ts-node/register database/index.ts' ",
       "typeorm": "typeorm-ts-node-commonjs"
    },
    "author": "josue ramirez",

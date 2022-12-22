@@ -1,16 +1,21 @@
-const TABLA = 'post';
+import * as store from '../store/postgreSQL'
+const TABLE = 'post';
 
-export default function (injectedStore) {
+function controller(injectedStore) {
     let store = injectedStore;
     if (!store) {
         store = require('../../../store/dummy');
     }
 
-    function list() {
-        return store.list(TABLA);
+    async function list() {
+        // return store.list(TABLA);
+        const response =await store.dataSource.getRepository(TABLE).find();
+        console.log(response)
+        return response
     }
 
     return {
         list,
     };
 }
+export default controller(store);

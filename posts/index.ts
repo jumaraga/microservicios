@@ -14,9 +14,9 @@ app.use(morgan("dev"));
 connectDB();
 
 // ROUTER
-app.use(router)
+app.use('/api/posts',router)
 app.use(errors)
 
-app.listen(envModel.post.port, () => {
-  console.log("Post microservice started on port",envModel.post.port);
+app.listen(envModel.posts.port, () => {
+  console.log("Post microservice started on port",envModel.posts.port);
 });

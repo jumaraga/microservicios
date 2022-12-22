@@ -2,9 +2,9 @@ export  default{
     api:{
         port: process.env.port || 3000
     },
-    post:{
-        host:process.env.POST_HOST,
-        port:process.env.POST_PORT,
+    posts:{
+        host:process.env.POSTS_HOST,
+        port:process.env.POSTS_PORT,
     },
     database:{
         port:  5455,
@@ -20,6 +20,6 @@ export  default{
         port:process.env.DB_SERVICE_PORT || 'a',
     },
     redis:{
-        
+
     }
 }
