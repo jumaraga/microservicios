@@ -5,10 +5,10 @@ import { User } from "./users.model";
 export class UsersFollow{
     @PrimaryGeneratedColumn()
     id:number;
-    @ManyToOne(()=>User)
+    @ManyToOne(()=>User,{nullable:false})
     @JoinColumn({name:'user_from'})
     from:User;
-    @ManyToOne(()=>User)
+    @ManyToOne(()=>User,{nullable:false})
     @JoinColumn({name:'user_to'})
     to:User;
     @CreateDateColumn()

@@ -2,6 +2,10 @@ export  default{
     api:{
         port: process.env.port || 3000
     },
+    post:{
+        host:process.env.POST_HOST,
+        port:process.env.POST_PORT,
+    },
     database:{
         port:  5455,
         username: process.env.USERNAME_DB || 'uno',
@@ -14,5 +18,8 @@ export  default{
     },
     jwt:{
         port:process.env.DB_SERVICE_PORT || 'a',
+    },
+    redis:{
+        
     }
 }

@@ -8,7 +8,8 @@ export const dataSource = new DataSource({
   username: envModel.database.username,
   synchronize: false,
   entities: [
-    'api/**/*.model.ts'
+    'api/**/*.model.ts',
+    'posts/**/*.model.ts'
   ], 
   migrations: ['migrations/*.ts'],
 

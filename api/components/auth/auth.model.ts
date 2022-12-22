@@ -5,7 +5,7 @@ export class auth {
     @PrimaryGeneratedColumn()
     id: number;
     
-    @OneToOne(()=> User)
+    @OneToOne(()=> User,{nullable:false})
     @JoinColumn()
     user:User;
 
