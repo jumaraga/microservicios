@@ -11,12 +11,11 @@ import { router } from "./network";
 const app = express();
 app.use(json());
 app.use(morgan("dev"));
-connectDB();
 
 // ROUTER
-app.use('/api/posts',router)
+app.use('/',router)
 app.use(errors)
 
-app.listen(envModel.redis.port, () => {
-  console.log("Post microservice started on port",envModel.redis.port);
+app.listen(envModel.cache.port, () => {
+  console.log("Cache microservice started on port",envModel.cache.port);
 });

@@ -7,10 +7,10 @@
       "test": "echo \"Error: no test specified\" && exit 1",
       "dev": "nodemon --exec 'node --inspect=0.0.0.0:3001 -r ts-node/register api/index.ts'",
       "start": "ts-node src/index.ts",
-      "dev:posts-service":"nodemon --exec 'node --inspect=0.0.0.0:3005 -r ts-node/register posts/index.ts' ",
-      "dev:redis-service":"nodemon --exec 'node --inspect=0.0.0.0:3005 -r ts-node/register redis/index.ts' ",
-      "dev:db-service":"nodemon --exec 'node --inspect=0.0.0.0:3003 -r ts-node/register database/index.ts' ",
-      "prod:db-service":"nodemon --exec 'node --inspect=0.0.0.0:3003 -r ts-node/register database/index.ts' ",
+      "dev:posts-service": "nodemon --exec 'node --inspect=0.0.0.0:3005 -r ts-node/register posts/index.ts' ",
+      "dev:redis-service": "nodemon --exec 'node --inspect=0.0.0.0:3007 -r ts-node/register cache/index.ts' ",
+      "dev:db-service": "nodemon --exec 'node --inspect=0.0.0.0:3003 -r ts-node/register database/index.ts' ",
+      "prod:db-service": "nodemon --exec 'node -r ts-node/register database/index.ts' ",
       "typeorm": "typeorm-ts-node-commonjs"
    },
    "author": "josue ramirez",
@@ -23,6 +23,7 @@
       "jsonwebtoken": "^8.5.1",
       "morgan": "^1.10.0",
       "pg": "^8.4.0",
+      "redis": "^4.5.1",
       "reflect-metadata": "^0.1.13",
       "typeorm": "0.3.11"
    },

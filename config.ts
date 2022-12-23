@@ -20,6 +20,11 @@ export  default{
         port:process.env.DB_SERVICE_PORT || 'a',
     },
     redis:{
-
+        port:process.env.REDIS_PORT || '',
+        host:process.env.REDIS_HOST ||'',
+        password: process.env.REDIS_PASSWORD || ''
+    },
+    cache:{
+        port:process.env.CACHE_PORT
     }
 }

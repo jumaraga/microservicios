@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
 
+
         {
             "type": "node",
             "request": "attach",
@@ -24,6 +25,16 @@
             ],
             // "program": "${workspaceFolder}/api/index.ts",
             "port": 3003
+        },
+         {
+            "type": "node",
+            "request": "attach",
+            "name": "cache-service",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            // "program": "${workspaceFolder}/api/index.ts",
+            "port": 3007
         }
     ]
 }
